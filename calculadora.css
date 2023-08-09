@@ -1,0 +1,58 @@
+*, *::before, *::after { /*Mudar tudo no agora, depois e antes*/
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    font-weight: normal;
+}
+
+body{ /*mudar o backgroud*/
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.calculator-grid{ /*arrumação do grid dos itens*/
+    display: grid;
+    justify-content: center;
+    align-content: center; /*align-content vai dar erro*/
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button { /*definir os botões*/
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);
+}
+
+.calculator-grid > button:hover { /*animação pra quando colocar o cursor encima mudar de cor*/
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two { /*faz o botão "AC" no caso span two ter o tamanho de duas colunas */
+    grid-column: span 2 ;
+}
+
+.output{ /*estilos para a parte de resposta e somas etc.*/
+    grid-column: 1 / -1; /*na teoria a mesma coisa de escrever que queremos 100% do espaço*/
+    background-color: rgba(0, 0, 0, .75);
+    display: flex; /*arrumar os itens da resposta*/
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word; /*quebra de linha*/
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand{
+    color: white;
+    font-size: 2.5rem;
+}
